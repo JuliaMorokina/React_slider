@@ -11,18 +11,23 @@ class App extends Component {
   render() {
     return (
       <div className="wrapper">
+        <SayHi text="World"/>
         <SayFullName name="Julia" surname="Morokina" link="//vk.com" />
-        <SayFullName name="Ivan" surname="Ivanov" link="//instagram.com" />
-        <SayFullName name="Anton" surname="Antonov" link="//facebook.com" />
       </div>
     );
   }
 }
 
+function SayHi(props) {
+  return (
+    <h1>Hello {props.text}!</h1>
+  );
+}
+
 function SayFullName(props) {
   return (
     <div>
-      <h1>My name is {props.name}, my surname is {props.surname}</h1>
+      <h3>My name is {props.name}, my surname is {props.surname}</h3>
       <a href={props.link}>My homepage</a>
     </div>
   );
