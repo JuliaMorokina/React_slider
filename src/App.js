@@ -3,34 +3,61 @@ import logo from './logo.svg';
 import './App.css';
 
 import Grid from 'react-bootstrap/lib/Grid';
-import Row from 'react-bootstrap/lib/Row';
-import Col from 'react-bootstrap/lib/Col';
 import styled from 'styled-components';
 
-class App extends Component {
+import Header from './components/Header';
+import Menu from './components/Menu';
+import Main from './components/Main';
+
+const url = process.env.PUBLIC_URL + '/img/background.jpg';
+
+const HeaderWrapper = styled.header`
+  width: 100%;
+  height: 49px;
+  background-color: #242424;
+  opacity: 0.8;
+`
+const MenuWrapper = styled.div`
+  height: 89px;
+  padding-top: 20px;
+  color: #464646;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 24px;
+`
+
+const MainWrapper = styled.main`
+  height: 600px;
+  padding-top: 130px;
+  background: url(${url}) no-repeat;
+  background-size: cover;
+`
+
+class App extends Component {  
   render() {
     return (
-      <div className="wrapper">
-        <SayHi text="World"/>
-        <SayFullName name="Julia" surname="Morokina" link="//vk.com" />
+      <div className="App">
+      
+        <HeaderWrapper>
+          <Grid>
+            <Header />
+          </Grid>
+        </HeaderWrapper>
+        
+        <MenuWrapper>
+          <Grid>
+            <Menu />
+          </Grid>
+        </MenuWrapper>
+
+        <MainWrapper>
+          <Grid>
+            <Main />
+          </Grid>
+        </MainWrapper>
       </div>
     );
   }
-}
-
-function SayHi(props) {
-  return (
-    <h1>Hello {props.text}!</h1>
-  );
-}
-
-function SayFullName(props) {
-  return (
-    <div>
-      <h3>My name is {props.name}, my surname is {props.surname}</h3>
-      <a href={props.link}>My homepage</a>
-    </div>
-  );
 }
 
 export default App;
