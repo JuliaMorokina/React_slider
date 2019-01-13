@@ -58,7 +58,7 @@ class Slider extends React.Component {
             if (this.state.active === this.state.max - 1) {
                 this.state.active = 0;
             } else {
-                this.state.active + 1;
+                this.state.active++;
             }
 
             this.setState ({
@@ -110,7 +110,7 @@ class Slider extends React.Component {
 
     // методы, отвечающие за рендеринг (создание всех частей компонента)
     setSliderStyles() {
-        const transition = this.state.active * - 100/this.state.slides.length
+        const transition = this.state.active * - 100/this.state.slides.length,
               slidesLenght = this.state.slides.length;
 
         return {
